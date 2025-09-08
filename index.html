@@ -115,15 +115,15 @@
       <h1 class="text-center mt-15 mb-10 font-semibold text-[#1f2937] text-2xl">
         Choose Your Trees
       </h1>
-      <div class="w-[95%] mx-auto grid grid-cols-12 gap-4">
+      <div id="all-category-btns" class="w-[95%] mx-auto grid grid-cols-12 gap-4">
         <div class="col-span-2">
           <h1 class="font-semibold mb-3">Categories</h1>
-          <h1
+          <h2
             onclick="loadAllTrees()"
-            class="pl-3 py-1 rounded-sm hover:bg-green-600 hover:text-white cursor-pointer mb-1 active"
+            class="pl-3 py-1 rounded-sm hover:bg-green-600 hover:text-white cursor-pointer mb-1 active category-btn"
           >
             All Trees
-          </h1>
+          </h2>
           <div id="category-container"></div>
         </div>
 

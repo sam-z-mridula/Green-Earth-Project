@@ -14,7 +14,7 @@ const displayCategory = (allCategories) => {
     allCategories.forEach(category => {
         const newDiv = document.createElement("div");
         newDiv.innerHTML = `
-        <h2 onclick="loadPlants(${category.id})" class="pl-3 py-1 rounded-sm hover:bg-green-600 hover:text-white cursor-pointer mb-1">
+        <h2 onclick="loadPlants(${category.id})" class="pl-3 py-1 rounded-sm hover:bg-green-600 hover:text-white cursor-pointer mb-1 category-btn">
             ${category.category_name}
         </h2>
         `;
@@ -22,8 +22,22 @@ const displayCategory = (allCategories) => {
     });
 }
 
+/* -------------- Active Feature using Event Delegation ------------ */
+const allCategoryBtn = document.getElementById("all-category-btns");
+allCategoryBtn.addEventListener("click", function(event) {
+    const clickedBtn = event.target;
+
+    if (clickedBtn.matches('.category-btn')) {
+      const categoryBtn = allCategoryBtn.querySelectorAll(".category-btn");
+      categoryBtn.forEach(btn => btn.classList.remove("active"));
+
+      clickedBtn.classList.add("active");
+    }
+})
+
 /* -------------- Plants by Category Functionality ------------ */
 const loadPlants = (id) => {
+
     fetch(`https://openapi.programming-hero.com/api/category/${id}`)
     .then((res) => res.json())
     .then((data) => displayPlants(data.plants))
