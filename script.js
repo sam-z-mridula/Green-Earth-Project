@@ -17,7 +17,7 @@ const displayCategory = (allCategories) => {
   allCategories.forEach((category) => {
     const newDiv = document.createElement("div");
     newDiv.innerHTML = `
-        <h2 onclick="loadPlants(${category.id})" class="pl-3 py-1 rounded-sm hover:bg-green-600 hover:text-white cursor-pointer mb-1 category-btn">
+        <h2 onclick="loadPlants(${category.id})" class="md:w-full w-fit px-3 py-1 rounded-sm hover:bg-green-600 hover:text-white cursor-pointer category-btn">
             ${category.category_name}
         </h2>
         `;
@@ -96,8 +96,8 @@ const displayPlants = (trees) => {
   trees.forEach((tree) => {
     const newDiv = document.createElement("div");
     newDiv.innerHTML = `
-            <div id="card" class="bg-white rounded-lg shadow-lg cursor-pointer">
-        <div class="h-45 bg-[url(${tree.image})] bg-cover bg-center rounded-t-lg mb-2"></div>
+            <div id="card" class="bg-white rounded-2xl shadow-lg cursor-pointer">
+        <div class="h-55 md:h-45 bg-[url(${tree.image})] bg-cover bg-center rounded-t-2xl mb-2"></div>
         <div class="px-3 pb-3">
           <h1 onclick="loadDetail(${tree.id})" class="plant-name font-semibold mb-2">${tree.name}</h1>
           <p class="text-gray-600 text-xs mb-3">${tree.description}</p>
@@ -162,7 +162,7 @@ const displayAllTrees = (trees) => {
     const newDiv = document.createElement("div");
     newDiv.innerHTML = `
       <div id="card" class="bg-white rounded-2xl shadow-sm cursor-pointer">
-        <div class="h-45 bg-[url(${tree.image})] bg-cover bg-center rounded-t-2xl mb-2"></div>
+        <div class="h-55 md:h-45 bg-[url(${tree.image})] bg-cover bg-center rounded-t-2xl mb-2"></div>
         <div class="px-3 pb-3">
           <h1 onclick="loadDetail(${tree.id})" class="plant-name font-semibold mb-2">${tree.name}</h1>
           <p class="text-gray-600 text-xs mb-3">${tree.description}</p>
