@@ -115,7 +115,27 @@
       <h1 class="text-center mt-15 mb-10 font-semibold text-[#1f2937] text-2xl">
         Choose Your Trees
       </h1>
-      <div id="all-category-btns" class="w-[95%] mx-auto grid grid-cols-12 gap-4">
+
+      <!-- Open the modal using ID.showModal() method -->
+      <section>
+        <dialog id="my_modal" class="modal modal-bottom sm:modal-middle">
+          <div class="modal-box w-100 rounded-2xl p-4">
+            <form method="dialog">
+              <button
+                class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+              >
+                ✕
+              </button>
+            </form>
+            <div id="details-container"></div>
+          </div>
+        </dialog>
+      </section>
+
+      <div
+        id="all-category-btns"
+        class="w-[95%] mx-auto grid grid-cols-12 gap-4"
+      >
         <div class="col-span-2">
           <h1 class="font-semibold mb-3">Categories</h1>
           <h2
@@ -127,9 +147,27 @@
           <div id="category-container"></div>
         </div>
 
-        <div id="card-container" class="col-span-8 grid grid-cols-3 gap-3"></div>
-        
-        <div class="col-span-2 bg-white">Your Cart</div>
+        <div class="col-span-8">
+
+          <!-- Spinner -->
+          <section id="loading-spinner" class="flex justify-center items-center py-10 hidden">
+            <span class="loading loading-infinity loading-xl"></span>
+          </section>
+
+          <!-- Card Container -->
+          <div id="card-container" class=" grid grid-cols-3 gap-4"></div>
+        </div>
+
+        <div class="col-span-2 bg-white py-4 px-2 rounded-xl shadow-sm">
+          <p class="font-semibold text-lg mb-1">Your Cart</p>
+
+          <div id="cart-container" class="border-b border-gray-200"></div>
+
+          <div class="flex justify-between m-1">
+            <span class="font-medium">Total:</span>
+            <span class="font-medium">৳<span id="sum-total">0</span></span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -139,15 +177,15 @@
         About the Campaign
       </h1>
       <div class="flex w-[75%] mx-auto justify-between items-center gap-15">
-        <img class="w-100" src="./assets/about.png" alt="" />
+        <img class="w-100 shadow-sm" src="./assets/about.png" alt="" />
         <div class="">
-          <p class="mb-5 text-gray-600 text-sm">
+          <p class="mb-5 text-gray-600 text-base">
             Green Earth is a global tree plantation initiative dedicated to
             fighting climate change. Since our start, we've planted over 500,000
             trees worldwide. By joining our campaign, you help restore forests,
             create habitats for wildlife, and combat global warming.
           </p>
-          <ul class="list-disc ml-8 text-gray-600 text-sm">
+          <ul class="list-disc ml-8 text-gray-600 text-base">
             <li>Restoration of natural habitats</li>
             <li>Improvement of air quality</li>
             <li>Support for local communities</li>
@@ -164,10 +202,12 @@
           <h1 class="text-[#15803d] text-2xl font-semibold">500K+</h1>
           <p class="text-xs text-gray-600">Trees Planted</p>
         </div>
+
         <div class="bg-white py-8 rounded-lg text-center shadow-sm">
           <h1 class="text-[#15803d] text-2xl font-semibold">120+</h1>
           <p class="text-xs text-gray-600">Communities Involved</p>
         </div>
+
         <div class="bg-white py-8 rounded-lg text-center shadow-sm">
           <h1 class="text-[#15803d] text-2xl font-semibold">30+</h1>
           <p class="text-xs text-gray-600">Countries Reached</p>
@@ -180,7 +220,7 @@
       <h1 class="text-center font-semibold text-2xl mb-8 text-white">
         Plant a Tree Today
       </h1>
-      <div class="bg-[#15803d] p-8 w-[35%] mx-auto rounded-xl">
+      <div class="bg-[#15803d] p-8 w-[35%] mx-auto rounded-xl shadow-lg">
         <form class="space-y-2">
           <input
             type="text"
